@@ -1,56 +1,444 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dan Chen — Engineering student, BlueScope cadet, and sustainability advocate based in Wollongong, NSW.">
 
-<title>Dan Adams | Engineering Student | Wollongong</title>
-
-<meta name="description" content="Dan Adams is an engineering student based in Wollongong, Australia. Learn about engineering projects, professional interests, and contact information.">
+  <title>Dan Chen — Engineering Portfolio</title>
 
   <!-- Typefaces -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Icons -->
-<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
 
-  <!-- Your stylesheet -->
-<link rel="stylesheet" href="portfolio.css">
-
-
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="portfolio.css">
 </head>
+
 <body>
 
-<header>
-    <h1>Dan Adams</h1>
-    <p>Engineering Student | Wollongong, NSW</p>
-</header>
+  <!-- ── NAVIGATION ── -->
+  <header>
+    <div class="pf-container">
+      <nav class="pf-nav" aria-label="Main navigation">
+        <a href="#" class="pf-nav-logo">Dan Chen</a>
+        <ul class="pf-nav-links" role="list">
+          <li><a href="#work"    class="pf-nav-link active">Work</a></li>
+          <li><a href="#about"   class="pf-nav-link">About</a></li>
+          <li><a href="#skills"  class="pf-nav-link">Skills</a></li>
+          <li><a href="#contact" class="pf-nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<section class="card">
-    <h2>About Me</h2>
-    <p>
-        Welcome to my website. I am an engineering student based in
-        Wollongong, Australia.
-    </p>
-</section>
+  <main>
+    <div class="pf-container">
 
-<section class="card">
-    <h2>Contact</h2>
-    <p>
-        Email:
-        <a href="mailto:dan@danadams.com.au">
-            dan@danadams.com.au
-        </a>
-        
-    </p>
-</section>
+      <!-- ── HERO ── -->
+      <section class="pf-hero" aria-label="Introduction">
+        <!-- Structural grid texture -->
+        <div class="pf-hero-grid" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
 
-<footer>
-    <p>&copy; 2026 Dan Adams</p>
-</footer>
+        <p class="pf-hero-name">Engineering Student · UOW 2025</p>
+
+        <h1 class="pf-display">
+          Building systems<br>
+          that <em>last.</em>
+        </h1>
+
+        <p class="pf-body">
+          Sustainable infrastructure, project management, and emerging technology —
+          grounded in real-world industry experience at BlueScope Steel.
+        </p>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem;">
+          <a href="#work" class="pf-btn primary">
+            View projects <i class="ti ti-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a href="resume.pdf" class="pf-btn" download>
+            Download CV <i class="ti ti-download" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+
+
+      <!-- ── STATS ── -->
+      <section class="pf-section" aria-label="At a glance">
+        <p class="pf-eyebrow">At a glance</p>
+        <div class="pf-amber-rule"></div>
+        <div class="pf-stats">
+          <div class="pf-stat">
+            <div class="pf-stat-val">3<sup>rd</sup></div>
+            <div class="pf-stat-label">Year engineering</div>
+          </div>
+          <div class="pf-stat">
+            <div class="pf-stat-val">6<sup>+</sup></div>
+            <div class="pf-stat-label">Projects completed</div>
+          </div>
+          <div class="pf-stat">
+            <div class="pf-stat-val">2<sup>yrs</sup></div>
+            <div class="pf-stat-label">Industry cadetship</div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── PROJECTS ── -->
+      <section id="work" class="pf-section" aria-label="Selected projects">
+        <p class="pf-eyebrow">Selected projects</p>
+        <div class="pf-amber-rule"></div>
+
+        <div class="pf-grid-2">
+
+          <!-- Project 1 -->
+          <article class="pf-card">
+            <div class="pf-card-index">01 — 2024</div>
+            <h2 class="pf-card-title">Arrowtown Aged-Care Facility</h2>
+            <p class="pf-card-desc">
+              Sustainable 60-dwelling residential complex on 11.4 ha for the Agile Ageing
+              Alliance. Full preliminary design report, NZD $24M cost estimate, and
+              Gantt schedule across Likely and Pessimistic scenarios.
+            </p>
+            <div style="margin-bottom: 0.875rem;">
+              <span class="pf-tag accent">Sustainability</span>
+              <span class="pf-tag">Project Mgmt</span>
+              <span class="pf-tag">Cost Estimation</span>
+              <span class="pf-tag">NZ</span>
+            </div>
+            <div class="pf-card-footer">
+              <a href="#" class="pf-card-link">
+                View project <i class="ti ti-arrow-right" aria-hidden="true"></i>
+              </a>
+              <span class="pf-mono">ENGG105</span>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="pf-card">
+            <div class="pf-card-index">02 — 2024</div>
+            <h2 class="pf-card-title">Steel Process Optimisation</h2>
+            <p class="pf-card-desc">
+              BlueScope cadetship project analysing manufacturing throughput and identifying
+              efficiency improvements across production lines using data-driven methods.
+            </p>
+            <div style="margin-bottom: 0.875rem;">
+              <span class="pf-tag accent">Manufacturing</span>
+              <span class="pf-tag">Data Analysis</span>
+              <span class="pf-tag">BlueScope</span>
+            </div>
+            <div class="pf-card-footer">
+              <a href="#" class="pf-card-link">
+                View project <i class="ti ti-arrow-right" aria-hidden="true"></i>
+              </a>
+              <span class="pf-mono">Cadetship</span>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="pf-card">
+            <div class="pf-card-index">03 — 2023</div>
+            <h2 class="pf-card-title">Crisis Simulation &amp; Defence Analysis</h2>
+            <p class="pf-card-desc">
+              Research paper and personal statement for the Australian Crisis Simulation
+              Summit, examining AI, cyber, and space as emerging national security
+              technologies and their role in Australia's strategic posture.
+            </p>
+            <div style="margin-bottom: 0.875rem;">
+              <span class="pf-tag accent">Research</span>
+              <span class="pf-tag">National Security</span>
+              <span class="pf-tag">Emerging Tech</span>
+            </div>
+            <div class="pf-card-footer">
+              <a href="#" class="pf-card-link">
+                View project <i class="ti ti-arrow-right" aria-hidden="true"></i>
+              </a>
+              <span class="pf-mono">ACSS 2024</span>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="pf-card">
+            <div class="pf-card-index">04 — 2023</div>
+            <h2 class="pf-card-title">Science Space Ambassador</h2>
+            <p class="pf-card-desc">
+              Casual engagement role at UOW Science Space, communicating scientific
+              concepts to public and school-age visitors through interactive demonstrations
+              and outreach programming.
+            </p>
+            <div style="margin-bottom: 0.875rem;">
+              <span class="pf-tag accent">Communication</span>
+              <span class="pf-tag">Outreach</span>
+              <span class="pf-tag">UOW</span>
+            </div>
+            <div class="pf-card-footer">
+              <a href="#" class="pf-card-link">
+                View project <i class="ti ti-arrow-right" aria-hidden="true"></i>
+              </a>
+              <span class="pf-mono">Volunteer</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+
+      <!-- ── ABOUT ── -->
+      <section id="about" class="pf-section" aria-label="About">
+        <p class="pf-eyebrow">About</p>
+        <div class="pf-amber-rule"></div>
+
+        <div class="pf-col-6040">
+          <div>
+            <h2 class="pf-heading">Engineering where<br>industry meets purpose.</h2>
+            <p class="pf-body">
+              I'm Dan, a third-year engineering student at the University of Wollongong
+              with a focus on sustainable design and infrastructure systems. Alongside my
+              degree, I've spent two years as an Engineering Cadet at BlueScope Steel —
+              working on real manufacturing challenges and translating academic theory into
+              industrial practice.
+            </p>
+            <p class="pf-body">
+              My interests sit at the intersection of infrastructure, sustainability, and
+              emerging technology. I'm drawn to problems that are both technically complex
+              and socially meaningful — from aged-care facility design in regional New
+              Zealand to national security strategy in an AI-enabled world.
+            </p>
+            <p class="pf-body">
+              Outside of engineering, I volunteer in the community and hold an active
+              interest in ASX investment analysis and defence policy.
+            </p>
+            <a href="#contact" class="pf-btn" style="margin-top: 0.5rem;">
+              Get in touch <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <!-- Experience timeline -->
+          <div>
+            <p class="pf-eyebrow" style="margin-bottom: 0.4rem;">Experience</p>
+            <div class="pf-amber-rule"></div>
+            <div class="pf-timeline">
+              <div class="pf-tl-item">
+                <div class="pf-tl-dot active"></div>
+                <div class="pf-tl-date">2023 – present</div>
+                <div class="pf-tl-title">Engineering Cadet</div>
+                <div class="pf-tl-org">BlueScope Steel</div>
+              </div>
+              <div class="pf-tl-item">
+                <div class="pf-tl-dot active"></div>
+                <div class="pf-tl-date">2022 – present</div>
+                <div class="pf-tl-title">B.Eng (Sustainability)</div>
+                <div class="pf-tl-org">University of Wollongong</div>
+              </div>
+              <div class="pf-tl-item">
+                <div class="pf-tl-dot"></div>
+                <div class="pf-tl-date">2023 – 2024</div>
+                <div class="pf-tl-title">Science Space Ambassador</div>
+                <div class="pf-tl-org">UOW Science Space</div>
+              </div>
+              <div class="pf-tl-item">
+                <div class="pf-tl-dot"></div>
+                <div class="pf-tl-date">2022 – 2023</div>
+                <div class="pf-tl-title">Community Volunteer</div>
+                <div class="pf-tl-org">Local programmes, Wollongong</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── SKILLS ── -->
+      <section id="skills" class="pf-section" aria-label="Skills">
+        <p class="pf-eyebrow">Skills</p>
+        <div class="pf-amber-rule"></div>
+
+        <div class="pf-col-6040">
+          <!-- Technical skills -->
+          <div>
+            <h2 class="pf-heading" style="margin-bottom: 1.5rem;">Technical</h2>
+
+            <div class="pf-skill">
+              <div class="pf-skill-label">
+                <span>Structural &amp; civil design</span>
+                <span>Advanced</span>
+              </div>
+              <div class="pf-skill-track">
+                <div class="pf-skill-fill" style="width: 82%;"></div>
+              </div>
+            </div>
+
+            <div class="pf-skill">
+              <div class="pf-skill-label">
+                <span>Sustainability analysis</span>
+                <span>Advanced</span>
+              </div>
+              <div class="pf-skill-track">
+                <div class="pf-skill-fill accent" style="width: 78%;"></div>
+              </div>
+            </div>
+
+            <div class="pf-skill">
+              <div class="pf-skill-label">
+                <span>Project scheduling (Gantt)</span>
+                <span>Proficient</span>
+              </div>
+              <div class="pf-skill-track">
+                <div class="pf-skill-fill" style="width: 74%;"></div>
+              </div>
+            </div>
+
+            <div class="pf-skill">
+              <div class="pf-skill-label">
+                <span>Cost estimation</span>
+                <span>Proficient</span>
+              </div>
+              <div class="pf-skill-track">
+                <div class="pf-skill-fill" style="width: 68%;"></div>
+              </div>
+            </div>
+
+            <div class="pf-skill">
+              <div class="pf-skill-label">
+                <span>Python / data analysis</span>
+                <span>Intermediate</span>
+              </div>
+              <div class="pf-skill-track">
+                <div class="pf-skill-fill" style="width: 55%;"></div>
+              </div>
+            </div>
+
+            <div class="pf-skill">
+              <div class="pf-skill-label">
+                <span>AutoCAD / technical drawing</span>
+                <span>Intermediate</span>
+              </div>
+              <div class="pf-skill-track">
+                <div class="pf-skill-fill" style="width: 60%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft skills / tools -->
+          <div>
+            <h2 class="pf-heading" style="margin-bottom: 1.5rem;">Tools &amp; competencies</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="pf-tag accent">Microsoft Project</span>
+              <span class="pf-tag accent">Excel / Sheets</span>
+              <span class="pf-tag">Report Writing</span>
+              <span class="pf-tag">Risk Assessment</span>
+              <span class="pf-tag">Stakeholder Comms</span>
+              <span class="pf-tag">Team Leadership</span>
+              <span class="pf-tag">Public Speaking</span>
+              <span class="pf-tag">Research Methods</span>
+              <span class="pf-tag">Python</span>
+              <span class="pf-tag">AutoCAD</span>
+              <span class="pf-tag">AS/NZS Standards</span>
+              <span class="pf-tag">WHS Compliance</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── CONTACT ── -->
+      <section id="contact" class="pf-section" aria-label="Contact">
+        <p class="pf-eyebrow">Contact</p>
+        <div class="pf-amber-rule"></div>
+
+        <div class="pf-col-6040">
+          <div>
+            <h2 class="pf-heading">Let's connect.</h2>
+            <p class="pf-body">
+              Open to internships, graduate roles, research collaborations, and
+              conversations about engineering, sustainability, or defence technology.
+            </p>
+            <a href="mailto:dan@student.uow.edu.au" class="pf-btn primary" style="margin-top: 0.5rem;">
+              Send an email <i class="ti ti-send" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div>
+            <ul class="pf-contact-list" role="list">
+              <li class="pf-contact-item">
+                <i class="ti ti-mail pf-contact-icon" aria-hidden="true"></i>
+                <span class="pf-contact-label">Email</span>
+                <a href="mailto:dan@student.uow.edu.au" class="pf-contact-value">
+                  dan@student.uow.edu.au
+                </a>
+              </li>
+              <li class="pf-contact-item">
+                <i class="ti ti-brand-linkedin pf-contact-icon" aria-hidden="true"></i>
+                <span class="pf-contact-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/dchen" target="_blank" rel="noopener" class="pf-contact-value">
+                  linkedin.com/in/dchen
+                </a>
+              </li>
+              <li class="pf-contact-item">
+                <i class="ti ti-brand-github pf-contact-icon" aria-hidden="true"></i>
+                <span class="pf-contact-label">GitHub</span>
+                <a href="https://github.com/dchen" target="_blank" rel="noopener" class="pf-contact-value">
+                  github.com/dchen
+                </a>
+              </li>
+              <li class="pf-contact-item">
+                <i class="ti ti-map-pin pf-contact-icon" aria-hidden="true"></i>
+                <span class="pf-contact-label">Location</span>
+                <span class="pf-contact-value">Wollongong, NSW</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /pf-container -->
+  </main>
+
+
+  <!-- ── FOOTER ── -->
+  <footer style="border-top: 0.5px solid var(--pf-border); padding: 1.75rem 0; margin-top: 1rem;">
+    <div class="pf-container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+      <span class="pf-mono">© 2025 Dan Chen</span>
+      <span class="pf-mono">Engineering &amp; Sustainability · University of Wollongong</span>
+    </div>
+  </footer>
+
+
+  <!-- ── ACTIVE NAV HIGHLIGHT ON SCROLL ── -->
+  <script>
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.pf-nav-link');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle(
+              'active',
+              link.getAttribute('href') === '#' + entry.target.id
+            );
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
 
 </body>
 </html>
