@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lighthouse Sitters — A steady light for busy families</title>
+<meta name="description" content="Vetted, warm, endlessly patient babysitters. Booked in minutes, ready when you need them most.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#0c1729;
+    --navy-900:#0f1d33;
+    --navy-800:#16294a;
+    --navy-700:#20375e;
+    --cream:#fbf6ec;
+    --cream-dim:#f2ead9;
+    --gold:#f4a93e;
+    --gold-dim:#d98c1f;
+    --slate:#6d8ba8;
+    --ink:#1c2430;
+    --ink-soft:#4a5568;
+    --white:#ffffff;
+    --line: rgba(255,255,255,0.12);
+    --line-dark: rgba(28,36,48,0.12);
+    --shadow: 0 20px 50px -20px rgba(12,23,41,0.35);
+    --radius: 14px;
+    --font-display: "Fraunces", serif;
+    --font-body: "Inter", -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:15px;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space:nowrap;
+  }
+  .btn-gold{
+    background:var(--gold);
+    color:var(--navy-950);
+    box-shadow:0 10px 24px -8px rgba(244,169,62,0.55);
+  }
+  .btn-gold:hover{background:var(--gold-dim); transform:translateY(-2px);}
+  .btn-ghost{
+    background:transparent;
+    border:1.5px solid var(--line);
+    color:var(--cream);
+  }
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
+  .btn-outline-dark{
+    border:1.5px solid var(--line-dark);
+    color:var(--ink);
+  }
+  .btn-outline-dark:hover{border-color:var(--navy-800); background:var(--navy-800); color:var(--cream);}
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(12,23,41,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 28px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--cream);
+  }
+  .brand-mark{width:30px;height:30px;flex-shrink:0;}
+  .brand-name{
+    font-family:var(--font-display);
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  .nav-links{
+    display:flex;
+    gap:32px;
+    align-items:center;
+  }
+  .nav-links a{
+    color:var(--cream);
+    font-size:14.5px;
+    font-weight:500;
+    opacity:0.85;
+    transition:opacity .15s;
+    position:relative;
+  }
+  .nav-links a:hover{opacity:1;}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    padding:6px;
+    color:var(--cream);
+  }
+  .nav-toggle span{width:22px;height:2px;background:currentColor;border-radius:2px;}
+
+  @media (max-width:860px){
+    .nav-links{
+      position:absolute;
+      top:100%;
+      left:0;right:0;
+      background:var(--navy-900);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:18px 28px 26px;
+      gap:18px;
+      display:none;
+      border-bottom:1px solid var(--line);
+    }
+    .nav-links.open{display:flex;}
+    .nav-toggle{display:flex;}
+    .nav-right .btn-gold{padding:10px 18px; font-size:13.5px;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 55%, var(--navy-800) 100%);
+    color:var(--cream);
+    overflow:hidden;
+    padding-top:96px;
+  }
+  .stars{
+    position:absolute; inset:0 0 40% 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 10% 20%, rgba(255,255,255,.7), transparent),
+      radial-gradient(1.5px 1.5px at 25% 45%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1px 1px at 40% 15%, rgba(255,255,255,.6), transparent),
+      radial-gradient(1.5px 1.5px at 60% 30%, rgba(255,255,255,.55), transparent),
+      radial-gradient(1px 1px at 75% 10%, rgba(255,255,255,.6), transparent),
+      radial-gradient(1.5px 1.5px at 88% 40%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1px 1px at 95% 22%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1.5px 1.5px at 15% 60%, rgba(255,255,255,.4), transparent),
+      radial-gradient(1px 1px at 50% 55%, rgba(255,255,255,.4), transparent);
+    animation:twinkle 5s ease-in-out infinite alternate;
+    pointer-events:none;
+  }
+  @keyframes twinkle{from{opacity:.6} to{opacity:1}}
+
+  .hero-inner{
+    position:relative;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:40px;
+    align-items:center;
+    padding-bottom:0;
+  }
+  .hero-copy{padding:56px 0 64px;}
+  .hero-copy .eyebrow{color:var(--gold); margin-bottom:18px; display:inline-block;}
+  .hero-copy h1{
+    font-size:clamp(38px, 5.2vw, 62px);
+    margin-bottom:22px;
+  }
+  .hero-copy h1 em{
+    font-style:italic;
+    color:var(--gold);
+  }
+  .hero-copy p.lead{
+    font-size:18px;
+    color:rgba(251,246,236,0.78);
+    max-width:480px;
+    margin-bottom:34px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+
+  .beacon-scene{
+    position:relative;
+    height:460px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+  }
+  .beam-cone{
+    position:absolute;
+    top:78px;
+    left:50%;
+    width:900px;
+    height:900px;
+    margin-left:-450px;
+    background:conic-gradient(from -35deg at 50% 0%,
+      transparent 0deg,
+      rgba(244,169,62,0.22) 12deg,
+      rgba(244,169,62,0.06) 22deg,
+      transparent 30deg,
+      transparent 360deg);
+    animation:sweep 7s linear infinite;
+    transform-origin:50% 0%;
+    pointer-events:none;
+  }
+  @keyframes sweep{
+    0%{transform:rotate(-24deg);}
+    50%{transform:rotate(24deg);}
+    100%{transform:rotate(-24deg);}
+  }
+  .lighthouse-svg{
+    position:relative;
+    width:190px;
+    z-index:2;
+  }
+  .horizon{
+    position:absolute;
+    bottom:64px;
+    left:0; right:0;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(251,246,236,0.25), transparent);
+  }
+  .sea{
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:64px;
+    background:linear-gradient(180deg, rgba(32,55,94,0.9), var(--navy-800));
+  }
+  .sea::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:repeating-linear-gradient(100deg, rgba(251,246,236,0.05) 0 2px, transparent 2px 60px);
+    animation:waves 8s linear infinite;
+  }
+  @keyframes waves{ from{background-position-x:0} to{background-position-x:200px} }
+
+  .stat-strip{
+    position:relative;
+    border-top:1px solid var(--line);
+    background:rgba(255,255,255,0.03);
+  }
+  .stat-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    padding:26px 0;
+  }
+  .stat-grid div{
+    text-align:center;
+    padding:6px 16px;
+    border-right:1px solid var(--line);
+  }
+  .stat-grid div:last-child{border-right:none;}
+  .stat-num{
+    font-family:var(--font-display);
+    font-size:26px;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .stat-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:rgba(251,246,236,0.6);
+    margin-top:4px;
+  }
+
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;}
+    .beacon-scene{height:300px;}
+    .beam-cone{width:600px;height:600px;margin-left:-300px;top:50px;}
+    .stat-grid{grid-template-columns:repeat(2,1fr); row-gap:18px;}
+    .stat-grid div:nth-child(2n){border-right:none;}
+    .stat-grid div:nth-child(1),.stat-grid div:nth-child(2){border-bottom:1px solid var(--line); padding-bottom:18px;}
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:100px 0;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head .eyebrow{color:var(--gold-dim); margin-bottom:14px; display:block;}
+  .section-head h2{
+    font-size:clamp(30px,3.4vw,42px);
+    color:var(--ink);
+  }
+  .section-head p{
+    margin-top:16px;
+    font-size:16.5px;
+    color:var(--ink-soft);
+  }
+  .on-dark .section-head .eyebrow{color:var(--gold);}
+  .on-dark .section-head h2{color:var(--cream);}
+  .on-dark .section-head p{color:rgba(251,246,236,0.72);}
+
+  /* ---------- LOGBOOK / SERVICES ---------- */
+  .logbook{background:var(--cream);}
+  .log-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line-dark);
+    border:1px solid var(--line-dark);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .log-card{
+    background:var(--white);
+    padding:32px 28px;
+    transition:background .2s ease;
+  }
+  .log-card:hover{background:var(--cream-dim);}
+  .log-icon{
+    width:42px;height:42px;
+    margin-bottom:20px;
+    color:var(--navy-800);
+  }
+  .log-num{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--slate);
+    margin-bottom:10px;
+    display:block;
+  }
+  .log-card h3{
+    font-size:20px;
+    margin-bottom:10px;
+    color:var(--ink);
+  }
+  .log-card p{
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:860px){
+    .log-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .course{background:var(--navy-900); color:var(--cream);}
+  .course-steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+  }
+  .step{
+    border-top:2px solid var(--gold);
+    padding-top:20px;
+  }
+  .step .step-no{
+    font-family:var(--font-mono);
+    color:var(--gold);
+    font-size:13px;
+    letter-spacing:0.08em;
+  }
+  .step h3{
+    font-family:var(--font-display);
+    font-size:19px;
+    margin:10px 0 8px;
+    font-weight:500;
+  }
+  .step p{
+    font-size:14.5px;
+    color:rgba(251,246,236,0.7);
+  }
+  @media (max-width:860px){
+    .course-steps{grid-template-columns:1fr 1fr; row-gap:32px;}
+  }
+  @media (max-width:520px){
+    .course-steps{grid-template-columns:1fr;}
+  }
+
+  /* ---------- KEEPERS ---------- */
+  .keepers{background:var(--cream-dim);}
+  .keeper-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .keeper-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:28px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--line-dark);
+  }
+  .keeper-top{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .keeper-avatar{
+    width:54px;height:54px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--navy-700),var(--navy-900));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold);
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:18px;
+    flex-shrink:0;
+  }
+  .keeper-name{font-weight:600; font-size:16.5px;}
+  .keeper-role{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--slate);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  .keeper-card p.bio{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  .badge-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .badge{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    letter-spacing:0.03em;
+    padding:5px 10px;
+    border-radius:999px;
+    background:var(--cream-dim);
+    border:1px solid var(--line-dark);
+    color:var(--ink-soft);
+  }
+  @media (max-width:900px){
+    .keeper-grid{grid-template-columns:1fr; max-width:420px; margin:0 auto;}
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .harbor{background:var(--cream);}
+  .quote-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .quote-card{
+    background:var(--white);
+    border:1px solid var(--line-dark);
+    border-left:3px solid var(--gold);
+    border-radius:10px;
+    padding:26px 24px;
+  }
+  .quote-card p.q{
+    font-family:var(--font-display);
+    font-size:17px;
+    line-height:1.45;
+    color:var(--ink);
+    margin-bottom:18px;
+  }
+  .quote-meta{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--slate);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  @media (max-width:900px){
+    .quote-row{grid-template-columns:1fr; max-width:480px; margin:0 auto;}
+  }
+
+  /* ---------- SAFETY ---------- */
+  .watch{background:var(--navy-950); color:var(--cream);}
+  .watch-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+  }
+  .watch-item{
+    text-align:center;
+    padding:22px 12px;
+    border:1px solid var(--line);
+    border-radius:12px;
+  }
+  .watch-item svg{width:30px;height:30px;margin:0 auto 14px; color:var(--gold);}
+  .watch-item span{font-size:13.5px; font-weight:500;}
+  @media (max-width:900px){
+    .watch-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .watch-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- PRICING ---------- */
+  .pricing{background:var(--cream-dim);}
+  .price-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    align-items:stretch;
+  }
+  .price-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    border:1px solid var(--line-dark);
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+  }
+  .price-card.featured{
+    background:var(--navy-900);
+    color:var(--cream);
+    border-color:var(--navy-900);
+    transform:translateY(-10px);
+    box-shadow:var(--shadow);
+  }
+  .price-card .eyebrow{color:var(--slate); margin-bottom:14px;}
+  .price-card.featured .eyebrow{color:var(--gold);}
+  .price-card h3{font-size:22px; margin-bottom:6px;}
+  .price-value{
+    font-family:var(--font-display);
+    font-size:38px;
+    font-weight:600;
+    margin:10px 0 4px;
+  }
+  .price-value span{font-size:15px; font-weight:400; opacity:0.65;}
+  .price-card ul{margin:22px 0 28px; display:flex; flex-direction:column; gap:11px;}
+  .price-card li{
+    font-size:14px;
+    display:flex;
+    gap:9px;
+    align-items:flex-start;
+    color:var(--ink-soft);
+  }
+  .price-card.featured li{color:rgba(251,246,236,0.82);}
+  .price-card li svg{width:16px;height:16px;flex-shrink:0;margin-top:2px;color:var(--gold-dim);}
+  .price-card.featured li svg{color:var(--gold);}
+  .price-card .btn{margin-top:auto; justify-content:center; width:100%;}
+  @media (max-width:900px){
+    .price-grid{grid-template-columns:1fr; max-width:420px; margin:0 auto;}
+    .price-card.featured{transform:none;}
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer.site{
+    background:var(--navy-950);
+    color:var(--cream);
+    padding-top:90px;
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+    padding-bottom:70px;
+    border-bottom:1px solid var(--line);
+  }
+  .contact-info h2{
+    font-size:clamp(28px,3vw,36px);
+    margin-bottom:16px;
+  }
+  .contact-info p{
+    color:rgba(251,246,236,0.72);
+    max-width:400px;
+    margin-bottom:28px;
+  }
+  .coords{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--gold);
+    letter-spacing:0.04em;
+    margin-bottom:6px;
+  }
+  .contact-list{margin-top:26px; display:flex; flex-direction:column; gap:10px;}
+  .contact-list a{font-size:14.5px; color:rgba(251,246,236,0.8); transition:color .15s;}
+  .contact-list a:hover{color:var(--gold);}
+
+  form.signal{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  form.signal .full{grid-column:1 / -1;}
+  form.signal label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:rgba(251,246,236,0.6);
+    margin-bottom:8px;
+    display:block;
+  }
+  form.signal input,form.signal textarea{
+    width:100%;
+    background:rgba(255,255,255,0.05);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:12px 14px;
+    color:var(--cream);
+    font-family:var(--font-body);
+    font-size:14.5px;
+  }
+  form.signal input::placeholder, form.signal textarea::placeholder{color:rgba(251,246,236,0.35);}
+  form.signal textarea{resize:vertical; min-height:100px;}
+  form.signal .btn{margin-top:6px;}
+
+  .foot-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:26px 0;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .foot-links{display:flex; gap:22px;}
+  .foot-links a{font-size:13.5px; color:rgba(251,246,236,0.6);}
+  .foot-links a:hover{color:var(--gold);}
+  .foot-copy{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:rgba(251,246,236,0.45);
+  }
+
+  @media (max-width:860px){
+    .contact-grid{grid-template-columns:1fr; gap:40px;}
+    form.signal{grid-template-columns:1fr;}
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav wrap">
+    <a href="#top" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 4H23L25 11H15L17 4Z" fill="#F4A93E"/>
+        <path d="M15.5 13H24.5L26 20H14L15.5 13Z" fill="#FBF6EC"/>
+        <path d="M13.5 22H26.5L29 36H11L13.5 22Z" fill="#FBF6EC" fill-opacity="0.9"/>
+        <rect x="11" y="22" width="18" height="3" fill="#20375E"/>
+        <rect x="9" y="35" width="22" height="2.4" fill="#F4A93E"/>
+      </svg>
+      <span class="brand-name">Lighthouse Sitters</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#keepers">Keepers</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#contact" class="btn btn-gold">Book a Keeper</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-bottom:0;">
+    <div class="stars"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Trusted childcare, on call</span>
+        <h1>A steady light<br>for busy <em>families.</em></h1>
+        <p class="lead">Vetted, warm, endlessly patient sitters — matched to your family and booked in minutes, ready when you need them most.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-gold">Book a Keeper</a>
+          <a href="#how" class="btn btn-ghost">See how it works</a>
+        </div>
+      </div>
+      <div class="beacon-scene">
+        <div class="beam-cone"></div>
+        <div class="horizon"></div>
+        <svg class="lighthouse-svg" viewBox="0 0 200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="400" rx="70" ry="10" fill="#0c1729"/>
+          <path d="M70 380 L130 380 L120 220 L80 220 Z" fill="#FBF6EC"/>
+          <path d="M80 220 L120 220 L116 160 L84 160 Z" fill="#F2EAD9"/>
+          <rect x="72" y="340" width="56" height="16" fill="#20375E"/>
+          <rect x="76" y="300" width="48" height="14" fill="#20375E"/>
+          <rect x="80" y="260" width="40" height="12" fill="#20375E"/>
+          <path d="M84 160 H116 L112 130 H88 Z" fill="#20375E"/>
+          <rect x="86" y="110" width="28" height="24" rx="2" fill="#F4A93E" opacity="0.9"/>
+          <path d="M80 110 H120 L108 92 H92 Z" fill="#0c1729"/>
+          <rect x="96" y="70" width="8" height="24" fill="#0c1729"/>
+          <circle cx="100" cy="66" r="5" fill="#F4A93E"/>
+        </svg>
+        <div class="sea"></div>
+      </div>
+    </div>
+    <div class="stat-strip">
+      <div class="wrap stat-grid">
+        <div><div class="stat-num">500+</div><div class="stat-label">Families guided home</div></div>
+        <div><div class="stat-num">4.9/5</div><div class="stat-label">Average keeper rating</div></div>
+        <div><div class="stat-num">100%</div><div class="stat-label">Background-checked</div></div>
+        <div><div class="stat-num">24hr</div><div class="stat-label">Emergency coverage</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="logbook" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The Logbook</span>
+        <h2>Care for every kind of night.</h2>
+        <p>Every entry, matched with the right Keeper — from a quick date-night escape to specialist newborn watches.</p>
+      </div>
+      <div class="log-grid reveal">
+        <div class="log-card">
+          <span class="log-num">ENTRY 01</span>
+          <svg class="log-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11Z"/></svg>
+          <h3>Date Night</h3>
+          <p>A few hours of easy, reliable care so you can get out the door on time.</p>
+        </div>
+        <div class="log-card">
+          <span class="log-num">ENTRY 02</span>
+          <svg class="log-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <h3>Weekly Care</h3>
+          <p>A familiar Keeper on the same days each week, built around school runs and routines.</p>
+        </div>
+        <div class="log-card">
+          <span class="log-num">ENTRY 03</span>
+          <svg class="log-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c2 2 4 4.5 4 7.5a4 4 0 0 1-8 0C8 7.5 10 5 12 3Z"/><path d="M6 21c0-3 2.5-5 6-5s6 2 6 5"/></svg>
+          <h3>Newborn Watch</h3>
+          <p>Overnight specialists trained in infant sleep, feeding schedules, and new-parent nerves.</p>
+        </div>
+        <div class="log-card">
+          <span class="log-num">ENTRY 04</span>
+          <svg class="log-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>Overnight Stays</h3>
+          <p>Full night coverage with morning handover, for travel or a long-overdue sleep-in.</p>
+        </div>
+        <div class="log-card">
+          <span class="log-num">ENTRY 05</span>
+          <svg class="log-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <h3>Emergency Backup</h3>
+          <p>Same-day cover when plans fall through — a Keeper on the way within the hour.</p>
+        </div>
+        <div class="log-card">
+          <span class="log-num">ENTRY 06</span>
+          <svg class="log-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+          <h3>Special Needs Care</h3>
+          <p>Keepers trained for sensory, mobility, and medical needs, matched with real experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="course" id="how">
+    <div class="wrap">
+      <div class="section-head on-dark reveal">
+        <span class="eyebrow">Charting your course</span>
+        <h2>Four steps, from request to relief.</h2>
+      </div>
+      <div class="course-steps reveal">
+        <div class="step">
+          <span class="step-no">01</span>
+          <h3>Chart your course</h3>
+          <p>Tell us the dates, ages, and anything your family needs us to know.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">02</span>
+          <h3>Meet your Keeper</h3>
+          <p>Review matched profiles and hop on a quick video call before you commit.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">03</span>
+          <h3>Confirm & relax</h3>
+          <p>Book securely and message your Keeper directly, any time before the shift.</p>
+        </div>
+        <div class="step">
+          <span class="step-no">04</span>
+          <h3>We stay in touch</h3>
+          <p>Check-in updates land in your pocket, so you're never far from the harbour.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEEPERS -->
+  <section class="keepers" id="keepers">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Meet the Keepers</span>
+        <h2>The people who hold the light.</h2>
+        <p>Every Keeper is interviewed in person, background-checked, and certified in first aid before they ever meet your family.</p>
+      </div>
+      <div class="keeper-grid reveal">
+        <div class="keeper-card">
+          <div class="keeper-top">
+            <div class="keeper-avatar">M</div>
+            <div>
+              <div class="keeper-name">Maya R.</div>
+              <div class="keeper-role">6 yrs experience</div>
+            </div>
+          </div>
+          <p class="bio">Early-childhood educator who specialises in bedtime routines and big feelings. Fluent in three-year-old negotiation tactics.</p>
+          <div class="badge-row">
+            <span class="badge">CPR CERTIFIED</span>
+            <span class="badge">BACKGROUND CHECKED</span>
+            <span class="badge">NEWBORN TRAINED</span>
+          </div>
+        </div>
+        <div class="keeper-card">
+          <div class="keeper-top">
+            <div class="keeper-avatar">J</div>
+            <div>
+              <div class="keeper-name">Jonah T.</div>
+              <div class="keeper-role">4 yrs experience</div>
+            </div>
+          </div>
+          <p class="bio">Former camp counsellor, great with school-age kids and a full toolkit of rainy-day activities. Overnight and weekly regular.</p>
+          <div class="badge-row">
+            <span class="badge">FIRST AID</span>
+            <span class="badge">BACKGROUND CHECKED</span>
+            <span class="badge">OVERNIGHT READY</span>
+          </div>
+        </div>
+        <div class="keeper-card">
+          <div class="keeper-top">
+            <div class="keeper-avatar">S</div>
+            <div>
+              <div class="keeper-name">Sana K.</div>
+              <div class="keeper-role">9 yrs experience</div>
+            </div>
+          </div>
+          <p class="bio">Trained support worker with experience in sensory and mobility care. Calm, structured, and endlessly patient.</p>
+          <div class="badge-row">
+            <span class="badge">SPECIAL NEEDS</span>
+            <span class="badge">BACKGROUND CHECKED</span>
+            <span class="badge">CPR CERTIFIED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="harbor">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Logged by families</span>
+        <h2>What the harbour is saying.</h2>
+      </div>
+      <div class="quote-row reveal">
+        <div class="quote-card">
+          <p class="q">"Our Keeper had bedtime handled within a week. It felt like she'd known our two-year-old for years."</p>
+          <div class="quote-meta">— Priya, parent of 1 &amp; 4-yr-olds</div>
+        </div>
+        <div class="quote-card">
+          <p class="q">"We booked emergency backup at 4pm and someone lovely was at the door by 5:30. Genuinely saved our week."</p>
+          <div class="quote-meta">— Marcus, parent of 6-yr-old</div>
+        </div>
+        <div class="quote-card">
+          <p class="q">"The matching process actually works. First Keeper we tried is now our regular, every Thursday for a year."</p>
+          <div class="quote-meta">— Elena, parent of twins, age 3</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="watch">
+    <div class="wrap">
+      <div class="section-head on-dark reveal">
+        <span class="eyebrow">On watch, always</span>
+        <h2>Safety isn't a feature. It's the whole job.</h2>
+      </div>
+      <div class="watch-grid reveal">
+        <div class="watch-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"/></svg>
+          <span>Background checks</span>
+        </div>
+        <div class="watch-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>
+          <span>CPR &amp; first aid certified</span>
+        </div>
+        <div class="watch-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+          <span>Insured &amp; bonded</span>
+        </div>
+        <div class="watch-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+          <span>References verified</span>
+        </div>
+        <div class="watch-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <span>24/7 support line</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Fair signal, clear terms</span>
+        <h2>Simple pricing, no hidden fees.</h2>
+        <p>Every rate includes matching, background checks, and support — pay only for the hours you book.</p>
+      </div>
+      <div class="price-grid reveal">
+        <div class="price-card">
+          <span class="eyebrow">Occasional</span>
+          <h3>Date Night</h3>
+          <div class="price-value">$28<span>/hr</span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>One-off bookings</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Match within 24 hrs</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>In-app messaging</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-dark">Book Occasional</a>
+        </div>
+        <div class="price-card featured">
+          <span class="eyebrow">Most families choose</span>
+          <h3>Weekly Regular</h3>
+          <div class="price-value">$25<span>/hr</span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Dedicated Keeper</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Priority rescheduling</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Free backup cover</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold">Book Weekly</a>
+        </div>
+        <div class="price-card">
+          <span class="eyebrow">Overnight &amp; Newborn</span>
+          <h3>Overnight Watch</h3>
+          <div class="price-value">$32<span>/hr</span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Newborn-trained Keepers</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Overnight &amp; multi-day</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Morning handover notes</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-dark">Book Overnight</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER / CONTACT -->
+<footer class="site" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <span class="eyebrow" style="color:var(--gold);">Send a signal</span>
+      <h2>Let's find your Keeper.</h2>
+      <p>Tell us a little about your family and we'll have a shortlist of matched Keepers in your inbox within one business day.</p>
+      <div class="coords">34.4278° S, 150.8931° E</div>
+      <div class="contact-list">
+        <a href="mailto:hello@lighthousesitters.com">hello@lighthousesitters.com</a>
+        <a href="tel:+61200000000">+61 2 0000 0000</a>
+        <a href="#">Mon–Sun, 7am–11pm</a>
+      </div>
+    </div>
+    <form class="signal reveal" onsubmit="event.preventDefault(); this.querySelector('.form-note').style.display='block';">
+      <div>
+        <label for="fname">Parent name</label>
+        <input id="fname" type="text" placeholder="Jamie Lee" required>
+      </div>
+      <div>
+        <label for="femail">Email</label>
+        <input id="femail" type="email" placeholder="jamie@email.com" required>
+      </div>
+      <div>
+        <label for="fkids">Children's ages</label>
+        <input id="fkids" type="text" placeholder="e.g. 2 and 5">
+      </div>
+      <div>
+        <label for="fneed">Care type</label>
+        <input id="fneed" type="text" placeholder="e.g. Weekly, evenings">
+      </div>
+      <div class="full">
+        <label for="fmsg">Anything else we should know?</label>
+        <textarea id="fmsg" placeholder="Routines, allergies, preferred schedule..."></textarea>
+      </div>
+      <div class="full">
+        <button type="submit" class="btn btn-gold">Send signal</button>
+        <p class="form-note" style="display:none; margin-top:12px; font-size:13.5px; color:var(--gold);">Signal received — we'll be in touch within one business day.</p>
+      </div>
+    </form>
+  </div>
+  <div class="wrap foot-bottom">
+    <div class="foot-copy">© 2026 Lighthouse Sitters. All rights reserved.</div>
+    <div class="foot-links">
+      <a href="#services">Services</a>
+      <a href="#keepers">Keepers</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
